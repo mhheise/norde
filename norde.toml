@@ -1,0 +1,364 @@
+# Norde theme family: the single source of truth.
+#
+# After editing, run `cargo gen` to regenerate every format.
+#
+# A color can be written as:
+#
+#   "#88C0D0"     hex, with optional alpha ("#88C0D0FF")
+#   "nord8"       a name from [palette] or the variant's [colors]
+#   "nord1/00"    a name or hex, plus alpha as a hex byte
+#
+# [palette] entries must be hex. [colors] entries can be hex or [palette] names,
+# but can't refer to each other.
+
+name = "Norde"
+author = "mhheise <mhheise@pm.me>"
+
+# ---------------------------------------------------------------------------
+# Outputs
+#
+# `path` is relative to this file. A path containing `{name}` is rendered once
+# per variant (e.g. "Norde", "Norde Light").
+# ---------------------------------------------------------------------------
+[formats.zed]
+path = "extras/zed/themes/norde.json"
+
+[formats.preview]
+path = "preview.html"
+
+[formats.ghostty]
+path = "extras/ghostty/{name}"
+
+# ---------------------------------------------------------------------------
+# Shared palette
+#
+# See: <https://www.nordtheme.com/docs/colors-and-palettes>
+# ---------------------------------------------------------------------------
+[palette]
+# Polar Night
+nord0 = "#2E3440"
+nord1 = "#3B4252"
+nord2 = "#434C5E"
+nord3 = "#4C566A"
+nord3_bright = "#616E88" # Nord's "brightened nord3" (comments in upstream ports)
+# Snow Storm
+nord4 = "#D8DEE9"
+nord5 = "#E5E9F0"
+nord6 = "#ECEFF4"
+# Frost
+nord7 = "#8FBCBB"
+nord8 = "#88C0D0"
+nord9 = "#81A1C1"
+nord10 = "#5E81AC"
+# Aurora
+nord11 = "#BF616A"
+nord12 = "#D08770"
+nord13 = "#EBCB8B"
+nord14 = "#A3BE8C"
+nord15 = "#B48EAD"
+
+# ---------------------------------------------------------------------------
+# Syntax roles
+#
+# Shared by every variant, so each role keeps one hue identity. `color` names a
+# color that every variant defines in its [colors] table; only the variant
+# decides how light or dark that hue is.
+#
+#   cyan      keywords, tags, constructors
+#   yellow    functions, escapes, regex
+#   green     types, enums, namespaces
+#   orange    strings, URIs
+#   purple    numbers, booleans, constants
+#   text      variables, operators, punctuation
+#   comment   comments
+#
+# Bold is reserved for control flow (if, for, return, ...) and Markdown strong
+# text and headings; italic for comments and Markdown emphasis.
+# ---------------------------------------------------------------------------
+[syntax]
+comment = { color = "comment", italic = true }
+
+keyword = { color = "cyan" }
+keyword_control = { color = "cyan", bold = true }
+tag = { color = "cyan" }
+constructor = { color = "cyan" }
+variable_special = { color = "cyan" }
+
+function = { color = "yellow" }
+string_special = { color = "yellow" }
+
+type = { color = "green" }
+namespace = { color = "green" }
+
+string = { color = "orange" }
+
+# Deviation from Yukinord: literals use purple (nord15), not yellow.
+constant = { color = "purple" }
+
+variable = { color = "text" }
+property = { color = "text" }
+attribute = { color = "text" }
+operator = { color = "text" }
+punctuation = { color = "text" }
+
+markup_heading = { color = "cyan", bold = true }
+markup_emphasis = { color = "text", italic = true }
+markup_strong = { color = "text", bold = true }
+markup_raw = { color = "yellow" }
+markup_link_text = { color = "purple" }
+markup_link_url = { color = "orange" }
+
+# ---------------------------------------------------------------------------
+# Norde (dark): the Yukinord mapping on Nord Deep backgrounds
+# ---------------------------------------------------------------------------
+[[variants]]
+name = "Norde"
+appearance = "dark"
+
+[variants.colors]
+# Syntax hues (referenced by [syntax])
+cyan = "nord8"
+yellow = "nord13"
+green = "nord14"
+orange = "nord12"
+purple = "nord15"
+text = "nord4"
+comment = "#8E929C"
+# Nord Deep surfaces
+bg = "#1D2129"
+deep = "#14171D"
+hover = "#2C323F"
+selected = "#3B4857"
+selection = "#445A77"
+muted = "#78849B"
+disabled = "#676D76"
+
+[variants.ui]
+accent = "nord8"
+
+[variants.ui.surface]
+background = "bg"
+chrome = "bg"  # status bar, title bar
+panel = "deep" # panels, tab bar, inactive tabs
+hover = "hover"
+selected = "selected"
+active_line = "nord0"
+selection = "selection"
+drop_target = "nord2"
+search_match = "#413537"
+debugger_line = "#46433D"
+document_highlight = "#425874"
+
+[variants.ui.border]
+default = "nord1"
+variant = "nord1"
+transparent = "nord1"
+faint = "nord1"
+
+[variants.ui.text]
+default = "nord4"
+muted = "nord4"
+placeholder = "muted"
+disabled = "disabled"
+icon_muted = "nord4"
+
+[variants.ui.editor]
+line_number = "nord3_bright"
+line_number_active = "nord6"
+invisible = "nord3_bright"
+indent_guide = "#313846"
+
+[variants.ui.scrollbar]
+thumb = "#3B414D"
+thumb_hover = "#424856"
+thumb_active = "#525867"
+thumb_border = "nord1/00"
+
+[variants.ui.status]
+error = "nord11"
+warning = "nord13"
+success = "nord14"
+info = "nord9"
+hint = "muted"
+predictive = "muted"
+hidden = "nord3_bright"
+
+[variants.ui.vcs]
+added = "nord14"
+modified = "nord13"
+deleted = "nord11"
+renamed = "nord12"
+conflict = "nord15"
+ignored = "comment"
+conflict_ours = "nord7"
+conflict_theirs = "nord10"
+
+# Normal and bright colors stay at least 3:1 against `background`, and black and
+# white at least 3:1 against each other (enforced by `cargo test`).
+[variants.terminal]
+background = "bg"
+foreground = "nord4"
+bright_foreground = "nord4"
+dim_foreground = "nord4"
+
+[variants.terminal.normal]
+black = "nord3_bright"
+red = "nord11"
+green = "nord14"
+yellow = "nord13"
+blue = "nord9"
+magenta = "nord15"
+cyan = "nord8"
+white = "nord5"
+
+[variants.terminal.bright]
+black = "muted"
+red = "nord11"
+green = "nord14"
+yellow = "nord13"
+blue = "nord9"
+magenta = "nord15"
+cyan = "nord8"
+white = "nord5"
+
+[variants.terminal.dim]
+black = "nord3"
+red = "nord11"
+green = "nord14"
+yellow = "nord13"
+blue = "nord9"
+magenta = "nord15"
+cyan = "nord8"
+white = "nord5"
+
+# ---------------------------------------------------------------------------
+# Norde Light (light): the same role→hue logic, with the Aurora/Frost accents
+# deepened for contrast
+#
+# Each syntax hue is derived from its dark counterpart's Nord hue, adjusted for
+# the bright ground. All clear WCAG-AA (at least 4.5:1) against `bg`; green is
+# pulled darkest and orange lightest so types and strings stay distinct under
+# red-green color-vision deficiency. `cargo test` enforces the contrast and the
+# green/orange spread.
+# ---------------------------------------------------------------------------
+[[variants]]
+name = "Norde Light"
+appearance = "light"
+
+[variants.colors]
+# Syntax hues, with their contrast against `bg`
+cyan = "#2C7083"    # hue 193, 5.18:1
+yellow = "#8B6518"  # hue 40,  4.89:1
+green = "#3F641F"   # hue 92,  6.36:1 (darkest)
+orange = "#B95231"  # hue 14,  4.50:1 (lightest)
+purple = "#9B3F8A"  # hue 311, 5.59:1
+text = "nord1"      #          9.31:1
+comment = "#646E85" #          4.72:1
+# UI tints (brightest editor to darker chrome), mirroring the dark layering
+bg = "#F4F6FB"
+chrome = "#E8ECF3"
+deep = "#DFE4EE"
+selection = "#C6D5EB"
+muted = "#6E788C" # placeholders (AA for large text)
+faint = "#B0B7C4" # disabled
+line = "#7C879B"  # inactive line numbers (at least 3:1)
+guide = "#DCE1EA"
+red = "#C03845"
+
+[variants.ui]
+accent = "nord10"
+
+[variants.ui.surface]
+background = "bg"
+chrome = "chrome"
+panel = "deep"
+hover = "#E1E7F0"
+selected = "#D8E1EF"
+active_line = "nord5"
+selection = "selection"
+drop_target = "nord4"
+search_match = "#E3E6C4"
+debugger_line = "#EDE9CE"
+document_highlight = "#CBD9EC"
+
+[variants.ui.border]
+default = "#D3DAE6"
+variant = "deep"
+transparent = "#000000/00"
+faint = "guide"
+
+[variants.ui.text]
+default = "nord0"
+muted = "nord1"
+placeholder = "muted"
+disabled = "faint"
+icon_muted = "muted"
+
+[variants.ui.editor]
+line_number = "line"
+line_number_active = "nord0"
+invisible = "#C4CBD6"
+indent_guide = "guide"
+
+[variants.ui.scrollbar]
+thumb = "#CBD2DE"
+thumb_hover = "#BCC5D4"
+thumb_active = "#AEB8CA"
+thumb_border = "#CBD2DE/00"
+
+[variants.ui.status]
+error = "red"
+warning = "yellow"
+success = "green"
+info = "cyan"
+hint = "#7C879A"
+predictive = "#9AA3B2"
+hidden = "muted"
+
+[variants.ui.vcs]
+added = "green"
+modified = "yellow"
+deleted = "red"
+renamed = "orange"
+conflict = "purple"
+ignored = "#9AA3B2"
+conflict_ours = "#4C7E8A"
+conflict_theirs = "nord10"
+
+# Normal and bright colors stay at least 3:1 against `background`, and black and
+# white at least 3:1 against each other (enforced by `cargo test`).
+[variants.terminal]
+background = "bg"
+foreground = "nord0"
+bright_foreground = "nord0"
+dim_foreground = "muted"
+
+[variants.terminal.normal]
+black = "nord0" # dark enough to read on `white`
+red = "red"
+green = "green"
+yellow = "yellow"
+blue = "nord10"
+magenta = "purple"
+cyan = "#4C7E8A"
+white = "line"
+
+[variants.terminal.bright]
+black = "nord3_bright"
+red = "nord11"
+green = "#6E9155"
+yellow = "#A8873B"
+blue = "#6E90BA"
+magenta = "#A97BA0"
+cyan = "#5E93A0"
+white = "line"
+
+[variants.terminal.dim]
+black = "#8A94A6"
+red = "#C98A90"
+green = "nord14"
+yellow = "#D8C48E"
+blue = "#A0B4CE"
+magenta = "#C9A6C1"
+cyan = "nord7"
+white = "guide"

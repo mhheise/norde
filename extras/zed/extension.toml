@@ -1,0 +1,7 @@
+id = "norde"
+name = "Norde"
+version = "0.1.0"
+schema_version = 1
+authors = ["mhheise <mhheise@pm.me>"]
+description = "Norde and Norde Light for Zed: the full Nord palette with measured, consistent, intuitive syntax roles so code is easy to scan."
+repository = "https://github.com/mhheise/norde"

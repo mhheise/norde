@@ -1,0 +1,60 @@
+// Optional companion for Norde with LSP semantic highlighting.
+//
+// Paste these keys into Zed's settings.json (Cmd/Ctrl-,). They are editor
+// settings, not part of the theme: semantic tokens come from the language
+// server (e.g. rust-analyzer), so they apply under any theme and can't be
+// bundled with the extension.
+//
+// Why "combined": it keeps Norde's tree-sitter colors as the base and only
+// layers these modifiers on top. "full" would hand all coloring to the language
+// server and turn tree-sitter off, overriding the theme's syntax roles.
+//
+// The main rules use decorations (underline, strikethrough) rather than color
+// on purpose: a decoration reads correctly under both Norde and Norde Light,
+// whereas a fixed hex would only suit one of them.
+//
+// Rule shape:
+//
+//   token_type        LSP token type; omit to match any type
+//   token_modifiers   modifiers that must all be present
+//   style             theme syntax styles to try; the first one found is used
+//   foreground_color  "#hex"; overrides style, as do all the keys below
+//   background_color  "#hex"
+//   underline         true (the token's own color) or "#hex"
+//   strikethrough     true (the token's own color) or "#hex"
+//   font_weight       "normal" or "bold"
+//   font_style        "normal" or "italic"
+//
+// Matching rules merge; earlier rules take precedence.
+//
+// Modifier names vary by language server; Zed's `editor: toggle semantic tokens
+// highlight` action shows the ones in use.
+{
+  "semantic_tokens": "combined",
+  "global_lsp_settings": {
+    "semantic_token_rules": [
+      // Underline mutable bindings so that mutable state stands out from
+      // immutable. rust-analyzer reports the `mutable` modifier.
+      { "token_type": "variable", "token_modifiers": ["mutable"], "underline": true },
+      { "token_type": "parameter", "token_modifiers": ["mutable"], "underline": true },
+
+      // Strike through deprecated APIs wherever the server flags them. With no
+      // token_type, this matches any deprecated symbol.
+      { "token_modifiers": ["deprecated"], "strikethrough": true },
+
+      // Optional extras (uncomment to taste)
+
+      // Unsafe operations (Rust): underline in Nord red as a hazard cue. The
+      // fixed hex looks the same in both themes, and red reads as danger in
+      // either. To make it win over the mutable underline, move it above those
+      // rules.
+      // { "token_modifiers": ["unsafe"], "underline": "#BF616AFF" },
+
+      // Static / global items: italic, to set them apart from locals.
+      // { "token_modifiers": ["static"], "font_style": "italic" },
+
+      // Standard-library types / functions: color them all like Norde's types.
+      // { "token_modifiers": ["defaultLibrary"], "style": ["type"] },
+    ]
+  }
+}

@@ -1,0 +1,4 @@
+# `cargo gen` regenerates every format from norde.toml; `cargo gen --check`
+# verifies the committed outputs are up to date (for CI).
+[alias]
+gen = "run --quiet --"
