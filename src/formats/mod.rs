@@ -11,6 +11,8 @@ mod helix;
 mod preview;
 mod starship;
 mod sublime;
+mod textmate;
+mod tmtheme;
 mod zed;
 
 /// Renders themes in one output format.
@@ -33,6 +35,7 @@ pub static ALL: &[&dyn Renderer] = &[
     &sublime::Sublime,
     &helix::Helix,
     &starship::Starship,
+    &tmtheme::TmTheme,
 ];
 
 pub fn lookup(name: &str) -> Option<&'static dyn Renderer> {

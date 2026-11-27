@@ -23,6 +23,7 @@ consistent semantic role so code is easy to scan at a glance.
 Each application's README covers setup, customization, and anything specific to
 it.
 
+- [bat and delta](extras/bat/README.md)
 - [Ghostty](extras/ghostty/README.md)
 - [Helix](extras/helix/README.md)
 - [Starship](extras/starship/README.md)

@@ -38,6 +38,9 @@ path = "extras/starship/starship.toml"
 [formats.sublime]
 path = "extras/sublime/{name}.sublime-color-scheme"
 
+[formats.tmtheme]
+path = "extras/bat/{name}.tmTheme"
+
 # ---------------------------------------------------------------------------
 # Shared palette
 #
