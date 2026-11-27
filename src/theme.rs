@@ -31,9 +31,35 @@ pub struct Family {
 pub struct FormatConfig {
     /// Output path, relative to the spec file.
     ///
-    /// `{name}` expands to each variant's name and makes the format render one
-    /// file per variant.
+    /// `{name}` expands to each variant's name and `{slug}` to a file-friendly
+    /// form of it (`Norde Light` becomes `norde_light`). Either makes the
+    /// format render one file per variant.
     pub path: String,
+}
+
+impl FormatConfig {
+    pub fn per_variant(&self) -> bool {
+        self.path.contains("{name}") || self.path.contains("{slug}")
+    }
+
+    pub fn path_for(&self, v: &Variant) -> String {
+        self.path
+            .replace("{name}", &v.name)
+            .replace("{slug}", &slug(&v.name))
+    }
+}
+
+/// Lowercase, with each run of other characters replaced by one `_`.
+fn slug(name: &str) -> String {
+    let mut out = String::new();
+    for c in name.chars() {
+        if c.is_ascii_alphanumeric() {
+            out.push(c.to_ascii_lowercase());
+        } else if !out.is_empty() && !out.ends_with('_') {
+            out.push('_');
+        }
+    }
+    out.trim_end_matches('_').to_owned()
 }
 
 #[derive(Debug, Deserialize)]
@@ -549,6 +575,13 @@ mod tests {
 
     fn err(src: &str) -> String {
         format!("{:#}", Family::parse(src).unwrap_err())
+    }
+
+    #[test]
+    fn slugs_are_file_friendly() {
+        assert_eq!(slug("Norde"), "norde");
+        assert_eq!(slug("Norde Light"), "norde_light");
+        assert_eq!(slug(" Nord  Deep (v2) "), "nord_deep_v2");
     }
 
     #[test]

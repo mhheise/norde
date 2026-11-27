@@ -17,8 +17,8 @@ author = "mhheise <mhheise@pm.me>"
 # ---------------------------------------------------------------------------
 # Outputs
 #
-# `path` is relative to this file. A path containing `{name}` is rendered once
-# per variant (e.g. "Norde", "Norde Light").
+# `path` is relative to this file. A path containing `{name}` (e.g. "Norde
+# Light") or `{slug}` (e.g. "norde_light") is rendered once per variant.
 # ---------------------------------------------------------------------------
 [formats.zed]
 path = "extras/zed/themes/norde.json"
@@ -28,6 +28,9 @@ path = "preview.html"
 
 [formats.ghostty]
 path = "extras/ghostty/{name}"
+
+[formats.helix]
+path = "extras/helix/{slug}.toml"
 
 [formats.sublime]
 path = "extras/sublime/{name}.sublime-color-scheme"

@@ -81,7 +81,7 @@ fn run(cli: Cli) -> Result<bool> {
             )
         })?;
         let ctx = || format!("rendering format {name:?}");
-        if cfg.path.contains("{name}") {
+        if cfg.per_variant() {
             for v in &family.variants {
                 if v.name.contains(['/', '\\']) {
                     bail!("variant name {:?} can't be used in a file path", v.name);
@@ -90,7 +90,7 @@ fn run(cli: Cli) -> Result<bool> {
                     .render(&family, std::slice::from_ref(v))
                     .with_context(ctx)?;
                 outputs.push(Output {
-                    path: root.join(cfg.path.replace("{name}", &v.name)),
+                    path: root.join(cfg.path_for(v)),
                     contents,
                 });
             }

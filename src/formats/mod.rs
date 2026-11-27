@@ -7,6 +7,7 @@ use anyhow::Result;
 use crate::theme::{Family, Variant};
 
 mod ghostty;
+mod helix;
 mod preview;
 mod sublime;
 mod zed;
@@ -19,7 +20,7 @@ pub trait Renderer: Sync {
     /// Render `variants` into one file's contents.
     ///
     /// Called once with every variant or, when the configured path contains
-    /// `{name}`, once per variant with a single-element slice. Formats that can
+    /// `{name}` or `{slug}`, once per variant with a single-element slice. Formats that can
     /// only hold one theme should reject `variants.len() != 1`.
     fn render(&self, family: &Family, variants: &[Variant]) -> Result<String>;
 }
@@ -29,6 +30,7 @@ pub static ALL: &[&dyn Renderer] = &[
     &preview::Preview,
     &ghostty::Ghostty,
     &sublime::Sublime,
+    &helix::Helix,
 ];
 
 pub fn lookup(name: &str) -> Option<&'static dyn Renderer> {

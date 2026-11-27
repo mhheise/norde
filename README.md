@@ -24,6 +24,7 @@ Each application's README covers setup, customization, and anything specific to
 it.
 
 - [Ghostty](extras/ghostty/README.md)
+- [Helix](extras/helix/README.md)
 - [Sublime Text](extras/sublime/README.md)
 - [Zed](extras/zed/README.md)
 
@@ -131,7 +132,8 @@ the application's own keys. To add one:
    ```
 
    This renders every variant into one file. If the application wants one file
-   per variant, put `{name}` in the path.
+   per variant, put `{name}` in the path, or `{slug}` for a lowercase file name
+   such as `norde_light`.
 4. Add `extras/<app>/README.md` and list it under
    [Supported applications](#supported-applications).
 
