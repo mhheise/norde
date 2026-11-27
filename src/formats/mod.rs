@@ -6,8 +6,11 @@ use anyhow::Result;
 
 use crate::theme::{Family, Variant};
 
+mod eza;
 mod ghostty;
 mod helix;
+mod listing;
+mod lsd;
 mod preview;
 mod starship;
 mod sublime;
@@ -36,6 +39,8 @@ pub static ALL: &[&dyn Renderer] = &[
     &helix::Helix,
     &starship::Starship,
     &tmtheme::TmTheme,
+    &eza::Eza,
+    &lsd::Lsd,
 ];
 
 pub fn lookup(name: &str) -> Option<&'static dyn Renderer> {

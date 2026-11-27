@@ -20,17 +20,20 @@ author = "mhheise <mhheise@pm.me>"
 # `path` is relative to this file. A path containing `{name}` (e.g. "Norde
 # Light") or `{slug}` (e.g. "norde_light") is rendered once per variant.
 # ---------------------------------------------------------------------------
-[formats.zed]
-path = "extras/zed/themes/norde.json"
-
-[formats.preview]
-path = "preview.html"
+[formats.eza]
+path = "extras/eza/{slug}/theme.yml"
 
 [formats.ghostty]
 path = "extras/ghostty/{name}"
 
 [formats.helix]
 path = "extras/helix/{slug}.toml"
+
+[formats.lsd]
+path = "extras/lsd/{slug}/colors.yaml"
+
+[formats.preview]
+path = "preview.html"
 
 [formats.starship]
 path = "extras/starship/starship.toml"
@@ -40,6 +43,9 @@ path = "extras/sublime/{name}.sublime-color-scheme"
 
 [formats.tmtheme]
 path = "extras/bat/{name}.tmTheme"
+
+[formats.zed]
+path = "extras/zed/themes/norde.json"
 
 # ---------------------------------------------------------------------------
 # Shared palette

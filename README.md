@@ -24,8 +24,10 @@ Each application's README covers setup, customization, and anything specific to
 it.
 
 - [bat and delta](extras/bat/README.md)
+- [eza](extras/eza/README.md)
 - [Ghostty](extras/ghostty/README.md)
 - [Helix](extras/helix/README.md)
+- [lsd](extras/lsd/README.md)
 - [Starship](extras/starship/README.md)
 - [Sublime Text](extras/sublime/README.md)
 - [Zed](extras/zed/README.md)
