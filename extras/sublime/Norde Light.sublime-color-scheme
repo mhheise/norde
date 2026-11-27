@@ -1,0 +1,194 @@
+{
+    "name": "Norde Light",
+    "author": "mhheise <mhheise@pm.me>",
+    "globals": {
+        "background": "#F4F6FB",
+        "foreground": "#2E3440",
+        "caret": "#5E81AC",
+        "line_highlight": "#E5E9F0",
+        "selection": "#C6D5EB",
+        "selection_corner_style": "round",
+        "gutter_foreground": "#7C879B",
+        "gutter_foreground_highlight": "#2E3440",
+        "find_highlight": "#E3E6C4",
+        "find_highlight_foreground": "#2E3440",
+        "guide": "#DCE1EA",
+        "active_guide": "#7C879B",
+        "stack_guide": "#DCE1EA",
+        "invisibles": "#C4CBD6",
+        "accent": "#5E81AC",
+        "brackets_foreground": "#5E81AC",
+        "brackets_options": "underline",
+        "bracket_contents_foreground": "#5E81AC",
+        "bracket_contents_options": "underline",
+        "tags_options": "stippled_underline",
+        "misspelling": "#C03845",
+        "shadow": "#00000033",
+        "line_diff_added": "#3F641F",
+        "line_diff_modified": "#8B6518",
+        "line_diff_deleted": "#C03845"
+    },
+    "rules": [
+        {
+            "name": "Comment",
+            "scope": "comment, punctuation.definition.comment",
+            "foreground": "#646E85",
+            "font_style": "italic"
+        },
+        {
+            "name": "Keyword",
+            "scope": "keyword, storage, storage.type, storage.modifier",
+            "foreground": "#2C7083",
+            "font_style": ""
+        },
+        {
+            "name": "Control flow",
+            "scope": "keyword.control, keyword.control.conditional, keyword.control.loop, keyword.control.flow, keyword.control.exception",
+            "foreground": "#2C7083",
+            "font_style": "bold"
+        },
+        {
+            "name": "Import and export",
+            "scope": "keyword.control.import, keyword.control.export",
+            "foreground": "#2C7083",
+            "font_style": ""
+        },
+        {
+            "name": "Operator",
+            "scope": "keyword.operator",
+            "foreground": "#3B4252",
+            "font_style": ""
+        },
+        {
+            "name": "Punctuation",
+            "scope": "punctuation",
+            "foreground": "#3B4252",
+            "font_style": ""
+        },
+        {
+            "name": "Function",
+            "scope": "entity.name.function, support.function, variable.function",
+            "foreground": "#8B6518",
+            "font_style": ""
+        },
+        {
+            "name": "Type",
+            "scope": "entity.name.type, entity.name.class, entity.name.struct, entity.name.enum, entity.name.trait, entity.name.interface, entity.other.inherited-class, support.type, support.class",
+            "foreground": "#3F641F",
+            "font_style": ""
+        },
+        {
+            "name": "Namespace",
+            "scope": "entity.name.namespace, entity.name.module",
+            "foreground": "#3F641F",
+            "font_style": ""
+        },
+        {
+            "name": "String",
+            "scope": "string, punctuation.definition.string",
+            "foreground": "#B95231",
+            "font_style": ""
+        },
+        {
+            "name": "Escape, regex, and placeholder",
+            "scope": "constant.character.escape, string.regexp, constant.other.placeholder",
+            "foreground": "#8B6518",
+            "font_style": ""
+        },
+        {
+            "name": "Constant",
+            "scope": "constant, constant.numeric, constant.language, support.constant",
+            "foreground": "#9B3F8A",
+            "font_style": ""
+        },
+        {
+            "name": "Variable",
+            "scope": "variable, variable.parameter, variable.other",
+            "foreground": "#3B4252",
+            "font_style": ""
+        },
+        {
+            "name": "Language variable",
+            "scope": "variable.language",
+            "foreground": "#2C7083",
+            "font_style": ""
+        },
+        {
+            "name": "Tag",
+            "scope": "entity.name.tag",
+            "foreground": "#2C7083",
+            "font_style": ""
+        },
+        {
+            "name": "Attribute",
+            "scope": "entity.other.attribute-name",
+            "foreground": "#3B4252",
+            "font_style": ""
+        },
+        {
+            "name": "Annotation",
+            "scope": "variable.annotation, punctuation.definition.annotation, entity.name.function.decorator",
+            "foreground": "#2C7083",
+            "font_style": ""
+        },
+        {
+            "name": "Heading",
+            "scope": "markup.heading, markup.heading entity.name",
+            "foreground": "#2C7083",
+            "font_style": "bold"
+        },
+        {
+            "name": "Bold",
+            "scope": "markup.bold",
+            "font_style": "bold"
+        },
+        {
+            "name": "Italic",
+            "scope": "markup.italic",
+            "font_style": "italic"
+        },
+        {
+            "name": "Link",
+            "scope": "markup.underline.link, markup.link",
+            "foreground": "#B95231",
+            "font_style": ""
+        },
+        {
+            "name": "Raw",
+            "scope": "markup.raw",
+            "foreground": "#8B6518",
+            "font_style": ""
+        },
+        {
+            "name": "Quote",
+            "scope": "markup.quote",
+            "foreground": "#646E85",
+            "font_style": "italic"
+        },
+        {
+            "name": "Inserted",
+            "scope": "markup.inserted, diff.inserted",
+            "foreground": "#3F641F"
+        },
+        {
+            "name": "Deleted",
+            "scope": "markup.deleted, diff.deleted",
+            "foreground": "#C03845"
+        },
+        {
+            "name": "Changed",
+            "scope": "markup.changed, diff.changed",
+            "foreground": "#8B6518"
+        },
+        {
+            "name": "Invalid",
+            "scope": "invalid, invalid.illegal",
+            "foreground": "#C03845"
+        },
+        {
+            "name": "Deprecated",
+            "scope": "invalid.deprecated",
+            "foreground": "#8B6518"
+        }
+    ]
+}

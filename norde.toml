@@ -29,6 +29,9 @@ path = "preview.html"
 [formats.ghostty]
 path = "extras/ghostty/{name}"
 
+[formats.sublime]
+path = "extras/sublime/{name}.sublime-color-scheme"
+
 # ---------------------------------------------------------------------------
 # Shared palette
 #

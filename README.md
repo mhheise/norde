@@ -24,6 +24,7 @@ Each application's README covers setup, customization, and anything specific to
 it.
 
 - [Ghostty](extras/ghostty/README.md)
+- [Sublime Text](extras/sublime/README.md)
 - [Zed](extras/zed/README.md)
 
 To support another one, see [Adding an application](#adding-an-application).

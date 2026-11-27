@@ -8,6 +8,7 @@ use crate::theme::{Family, Variant};
 
 mod ghostty;
 mod preview;
+mod sublime;
 mod zed;
 
 /// Renders themes in one output format.
@@ -23,7 +24,12 @@ pub trait Renderer: Sync {
     fn render(&self, family: &Family, variants: &[Variant]) -> Result<String>;
 }
 
-pub static ALL: &[&dyn Renderer] = &[&zed::Zed, &preview::Preview, &ghostty::Ghostty];
+pub static ALL: &[&dyn Renderer] = &[
+    &zed::Zed,
+    &preview::Preview,
+    &ghostty::Ghostty,
+    &sublime::Sublime,
+];
 
 pub fn lookup(name: &str) -> Option<&'static dyn Renderer> {
     ALL.iter().copied().find(|t| t.name() == name)
