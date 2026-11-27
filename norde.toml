@@ -29,6 +29,9 @@ path = "extras/ghostty/{name}"
 [formats.helix]
 path = "extras/helix/{slug}.toml"
 
+[formats.ls_colors]
+path = "extras/ls-colors/{slug}.sh"
+
 [formats.lsd]
 path = "extras/lsd/{slug}/colors.yaml"
 

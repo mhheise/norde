@@ -10,6 +10,7 @@ mod eza;
 mod ghostty;
 mod helix;
 mod listing;
+mod ls_colors;
 mod lsd;
 mod preview;
 mod starship;
@@ -41,6 +42,7 @@ pub static ALL: &[&dyn Renderer] = &[
     &tmtheme::TmTheme,
     &eza::Eza,
     &lsd::Lsd,
+    &ls_colors::LsColors,
 ];
 
 pub fn lookup(name: &str) -> Option<&'static dyn Renderer> {

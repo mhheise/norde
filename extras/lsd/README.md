@@ -5,7 +5,8 @@ variant. See the [main README](../../README.md) for the palette and how the
 themes are generated.
 
 lsd's themes cover metadata (users, permissions, dates, sizes, and Git status).
-File names are colored by the `LS_COLORS` environment variable instead. The
+File names are colored by the `LS_COLORS` environment variable instead; see
+[Norde for `LS_COLORS`](../ls-colors/README.md). The
 colors match the [eza](../eza/README.md) themes.
 
 ## Install

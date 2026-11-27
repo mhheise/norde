@@ -27,6 +27,7 @@ it.
 - [eza](extras/eza/README.md)
 - [Ghostty](extras/ghostty/README.md)
 - [Helix](extras/helix/README.md)
+- [`LS_COLORS`](extras/ls-colors/README.md) (GNU `ls`, fd, tree, and others)
 - [lsd](extras/lsd/README.md)
 - [Starship](extras/starship/README.md)
 - [Sublime Text](extras/sublime/README.md)
