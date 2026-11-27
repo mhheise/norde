@@ -7,6 +7,7 @@ use anyhow::Result;
 use crate::theme::{Family, Variant};
 
 mod eza;
+mod fish;
 mod ghostty;
 mod helix;
 mod listing;
@@ -41,6 +42,7 @@ pub static ALL: &[&dyn Renderer] = &[
     &starship::Starship,
     &tmtheme::TmTheme,
     &eza::Eza,
+    &fish::Fish,
     &lsd::Lsd,
     &ls_colors::LsColors,
 ];

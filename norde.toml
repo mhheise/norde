@@ -23,6 +23,9 @@ author = "mhheise <mhheise@pm.me>"
 [formats.eza]
 path = "extras/eza/{slug}/theme.yml"
 
+[formats.fish]
+path = "extras/fish/norde.theme"
+
 [formats.ghostty]
 path = "extras/ghostty/{name}"
 

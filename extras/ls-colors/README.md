@@ -21,7 +21,7 @@ Source the variant you want from your shell's startup file, such as
 source ~/path/to/norde/extras/ls-colors/norde.sh   # or norde_light.sh
 ```
 
-The snippets are tested with bash and zsh.
+The snippets are tested with bash, zsh, and fish.
 
 ## Customize
 

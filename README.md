@@ -25,6 +25,7 @@ it.
 
 - [bat and delta](extras/bat/README.md)
 - [eza](extras/eza/README.md)
+- [fish](extras/fish/README.md)
 - [Ghostty](extras/ghostty/README.md)
 - [Helix](extras/helix/README.md)
 - [`LS_COLORS`](extras/ls-colors/README.md) (GNU `ls`, fd, tree, and others)
