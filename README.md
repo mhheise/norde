@@ -35,15 +35,15 @@ To support another one, see [Adding an application](#adding-an-application).
 Every semantic role keeps the same *hue* across variants; only the lightness
 changes for the background. All variants share this mapping:
 
-| Role                          | Hue    | Dark (Norde)       | Light (Norde Light) |
-| ----------------------------- | ------ | ------------------ | ------------------- |
-| Keywords, tags, constructors  | Frost  | `#88C0D0` nord8    | `#2C7083`           |
-| Functions, escapes, regex     | Yellow | `#EBCB8B` nord13   | `#8B6518`           |
-| Types, enums, namespaces      | Green  | `#A3BE8C` nord14   | `#3F641F`           |
-| Strings, URIs                 | Orange | `#D08770` nord12   | `#B95231`           |
-| Numbers, booleans, constants  | Purple | `#B48EAD` nord15   | `#9B3F8A`           |
-| Comments (italic)             | Gray   | `#8E929C`          | `#646E85`           |
-| Variables, operators, punct.  | Text   | `#D8DEE9` nord4    | `#3B4252` nord1     |
+| Role                              | Hue    | Dark (Norde)     | Light (Norde Light) |
+| --------------------------------- | ------ | ---------------- | ------------------- |
+| Keywords, tags, constructors      | Frost  | `#88C0D0` nord8  | `#2C7083`           |
+| Functions, macros, escapes, regex | Yellow | `#EBCB8B` nord13 | `#8B6518`           |
+| Types, enums, namespaces          | Green  | `#A3BE8C` nord14 | `#3F641F`           |
+| Strings, URIs                     | Orange | `#D08770` nord12 | `#B95231`           |
+| Numbers, booleans, constants      | Purple | `#B48EAD` nord15 | `#9B3F8A`           |
+| Comments (italic)                 | Gray   | `#8E929C`        | `#646E85`           |
+| Variables, operators, punct.      | Text   | `#D8DEE9` nord4  | `#3B4252` nord1     |
 
 Each **light** accent is *derived from its dark counterpart's Nord hue* (same
 hue, re-lightened and re-saturated for a bright background), so every semantic

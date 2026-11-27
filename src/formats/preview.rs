@@ -16,6 +16,7 @@ enum Tok {
     Kw,
     Kwc,
     Fn,
+    Macro,
     Ty,
     Str,
     Num,
@@ -32,6 +33,7 @@ impl Tok {
             Kw => &s.keyword,
             Kwc => &s.keyword_control,
             Fn => &s.function,
+            Macro => &s.r#macro,
             Ty => &s.ty,
             Str => &s.string,
             Num => &s.constant,
@@ -44,7 +46,7 @@ impl Tok {
     }
 }
 
-use Tok::{Cmt, Fn, Kw, Kwc, Ns, Num, Op, Punct, Str, Ty, Var};
+use Tok::{Cmt, Fn, Kw, Kwc, Macro, Ns, Num, Op, Punct, Str, Ty, Var};
 
 /// Pre-tokenized sample; `None` is the default foreground.
 const LINES: &[&[(Option<Tok>, &str)]] = &[
@@ -129,7 +131,7 @@ const LINES: &[&[(Option<Tok>, &str)]] = &[
     &[(None, "    "), (Some(Punct), "}")],
     &[
         (None, "    "),
-        (Some(Fn), "println!"),
+        (Some(Macro), "println!"),
         (Some(Punct), "("),
         (Some(Str), "\"loaded {}\""),
         (Some(Punct), ", "),

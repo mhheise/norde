@@ -72,6 +72,12 @@
             "font_style": ""
         },
         {
+            "name": "Macro",
+            "scope": "support.macro, entity.name.macro",
+            "foreground": "#EBCB8B",
+            "font_style": ""
+        },
+        {
             "name": "Type",
             "scope": "entity.name.type, entity.name.class, entity.name.struct, entity.name.enum, entity.name.trait, entity.name.interface, entity.other.inherited-class, support.type, support.class",
             "foreground": "#A3BE8C",

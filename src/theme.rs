@@ -113,6 +113,8 @@ pub struct Syntax {
     /// `self`, `this`, and builtins that look like variables.
     pub variable_special: Style,
     pub function: Style,
+    /// Macro invocations and definitions, such as `println!` in Rust.
+    pub r#macro: Style,
     /// Escapes, regexes, symbols.
     pub string_special: Style,
     #[serde(rename = "type")]
@@ -136,7 +138,7 @@ pub struct Syntax {
 
 impl Syntax {
     /// Every role with its spec name, for formats and lints that iterate.
-    pub fn roles(&self) -> [(&'static str, &Style); 23] {
+    pub fn roles(&self) -> [(&'static str, &Style); 24] {
         [
             ("comment", &self.comment),
             ("keyword", &self.keyword),
@@ -145,6 +147,7 @@ impl Syntax {
             ("constructor", &self.constructor),
             ("variable_special", &self.variable_special),
             ("function", &self.function),
+            ("macro", &self.r#macro),
             ("string_special", &self.string_special),
             ("type", &self.ty),
             ("namespace", &self.namespace),
@@ -551,6 +554,7 @@ mod tests {
             "constructor",
             "variable_special",
             "function",
+            "macro",
             "string_special",
             "type",
             "namespace",

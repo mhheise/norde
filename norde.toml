@@ -71,7 +71,7 @@ nord15 = "#B48EAD"
 # decides how light or dark that hue is.
 #
 #   cyan      keywords, tags, constructors
-#   yellow    functions, escapes, regex
+#   yellow    functions, macros, escapes, regex
 #   green     types, enums, namespaces
 #   orange    strings, URIs
 #   purple    numbers, booleans, constants
@@ -91,6 +91,7 @@ constructor = { color = "cyan" }
 variable_special = { color = "cyan" }
 
 function = { color = "yellow" }
+macro = { color = "yellow" }
 string_special = { color = "yellow" }
 
 type = { color = "green" }

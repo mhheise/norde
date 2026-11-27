@@ -119,6 +119,11 @@ fn rules(v: &Variant) -> Vec<Value> {
             Paint::Role(&x.function),
         ),
         (
+            "Macro",
+            "support.macro, entity.name.macro",
+            Paint::Role(&x.r#macro),
+        ),
+        (
             "Type",
             "entity.name.type, entity.name.class, entity.name.struct, entity.name.enum, \
              entity.name.trait, entity.name.interface, entity.other.inherited-class, \
@@ -274,6 +279,17 @@ mod tests {
         for s in schemes() {
             assert_eq!(rule(&s, "Control flow")["font_style"], "bold");
             assert_eq!(rule(&s, "Import and export")["font_style"], "");
+        }
+    }
+
+    #[test]
+    fn macros_use_the_macro_role() {
+        let spec = Path::new(env!("CARGO_MANIFEST_DIR")).join("norde.toml");
+        let family = Family::load(&spec).unwrap();
+        for (s, v) in schemes().iter().zip(&family.variants) {
+            let r = rule(s, "Macro");
+            assert_eq!(r["scope"], "support.macro, entity.name.macro");
+            assert_eq!(r["foreground"], v.syntax.r#macro.color.hex_rgb());
         }
     }
 

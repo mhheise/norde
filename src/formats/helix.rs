@@ -234,7 +234,7 @@ fn entries(v: &Variant, p: &mut Palette) -> Vec<(&'static str, Entry)> {
         ("keyword.control.import", role("keyword", &x.keyword)),
         ("keyword.operator", role("operator", &x.operator)),
         ("function", role("function", &x.function)),
-        ("function.macro", role("keyword", &x.keyword)),
+        ("function.macro", role("macro", &x.r#macro)),
         ("constructor", role("constructor", &x.constructor)),
         ("type", role("type", &x.ty)),
         ("namespace", role("namespace", &x.namespace)),
@@ -344,6 +344,13 @@ mod tests {
                     assert!(palette.contains_key(&c), "{key}: {c:?} not in palette");
                 }
             }
+        }
+    }
+
+    #[test]
+    fn macros_use_the_macro_role() {
+        for theme in themes() {
+            assert_eq!(theme["function.macro"].as_str(), Some("macro"));
         }
     }
 
