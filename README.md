@@ -25,6 +25,7 @@ it.
 
 - [Ghostty](extras/ghostty/README.md)
 - [Helix](extras/helix/README.md)
+- [Starship](extras/starship/README.md)
 - [Sublime Text](extras/sublime/README.md)
 - [Zed](extras/zed/README.md)
 

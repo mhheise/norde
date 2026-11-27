@@ -50,7 +50,7 @@ impl FormatConfig {
 }
 
 /// Lowercase, with each run of other characters replaced by one `_`.
-fn slug(name: &str) -> String {
+pub fn slug(name: &str) -> String {
     let mut out = String::new();
     for c in name.chars() {
         if c.is_ascii_alphanumeric() {

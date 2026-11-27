@@ -9,6 +9,7 @@ use crate::theme::{Family, Variant};
 mod ghostty;
 mod helix;
 mod preview;
+mod starship;
 mod sublime;
 mod zed;
 
@@ -31,6 +32,7 @@ pub static ALL: &[&dyn Renderer] = &[
     &ghostty::Ghostty,
     &sublime::Sublime,
     &helix::Helix,
+    &starship::Starship,
 ];
 
 pub fn lookup(name: &str) -> Option<&'static dyn Renderer> {

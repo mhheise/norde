@@ -32,6 +32,9 @@ path = "extras/ghostty/{name}"
 [formats.helix]
 path = "extras/helix/{slug}.toml"
 
+[formats.starship]
+path = "extras/starship/starship.toml"
+
 [formats.sublime]
 path = "extras/sublime/{name}.sublime-color-scheme"
 
